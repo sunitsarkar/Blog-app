@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './login.css'
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import axios from 'axios';
 
 const LoginPage = () => {
     const [username, setUsername] = useState('');
@@ -34,6 +35,25 @@ const LoginPage = () => {
             setErrors(errors);
         } else {
             // login logic to be implemented
+            console.log(username,password)
+            axios.post('http://localhost:8000/', {
+                email: username,
+                password: password
+            }).then((res)=>{
+                if (res.data.status === "success") {
+                  window.localStorage.setItem("token", res.data.token);
+                  alert("SignIn Sucessfully!");
+                  console.log(username);
+                  navigate('/blog',{
+                    state:{
+                      ref:username
+                    }
+                  })
+                }
+              }).catch((err) => {
+                console.log(err);
+                alert("Enter Valid Details");
+              });
 
 
             console.log('Login successful!');

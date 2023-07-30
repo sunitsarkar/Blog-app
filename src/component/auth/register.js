@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import './reg.css'
 import { useNavigate } from 'react-router-dom';
-import {  motion } from 'framer-motion';
+import { motion } from 'framer-motion';
+import axios from 'axios';
 
 export default function RegistrationPage() {
     const [name, setName] = useState('');
@@ -58,7 +59,19 @@ export default function RegistrationPage() {
             setErrors(errors);
         } else {
             // registration logic to be implemented
-            
+            // console.log(name,email,password)
+            axios.post('http://localhost:8000/reg', {
+                name: name,
+                email: email,
+                password: password
+            }).then((res )=>{ console.log(res);
+                navigate('/')
+            }).catch(err => console.log(err.message))
+            // .then((res) => {
+            //     console.log(res);
+            //     navigate('/')
+            // })
+
             setName('');
             setEmail('');
             setPassword('');
@@ -69,11 +82,11 @@ export default function RegistrationPage() {
 
     return (
         <div className="registration-container">
-        <motion.div
-            initial={{ x: -1000 }}
-            animate={{ x: 0 }}
-            transition={{ type: "spring", duration: 0.5 }}>
-            
+            <motion.div
+                initial={{ x: -1000 }}
+                animate={{ x: 0 }}
+                transition={{ type: "spring", duration: 0.5 }}>
+
                 <h2>Registration</h2>
                 <form onSubmit={handleSubmit} className="registration-form">
                     <div className="form-group">
@@ -124,8 +137,8 @@ export default function RegistrationPage() {
                 </form>
                 <br /><br />
                 <p id='login' onClick={() => { navigate('/') }}>go to login page</p>
-            
-        </motion.div>
+
+            </motion.div>
         </div>
     );
 };

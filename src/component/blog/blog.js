@@ -45,7 +45,7 @@ export default function BlogPage() {
                         <h3>{item.blog}</h3>
                         <button onClick={(e)=>{
                             e.preventDefault();
-                            axios.delete(url+`/blog/delete?id=${item.id}`).then(()=>{
+                            axios.delete(uri+`/blog/delete?id=${item.id}`).then(()=>{
                                 setTemp(!temp)
                             })
                         }}>delete</button>

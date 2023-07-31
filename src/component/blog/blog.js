@@ -4,7 +4,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 export default function BlogPage() {
-    const url="https://blog-backend-sunit.onrender.com"
+    const uri="https://blog-backend-sunit.onrender.com"
     const location = useLocation();
     const username = location.state.ref;
     const headers = { "Authorization": localStorage.getItem("token") };
@@ -12,7 +12,7 @@ export default function BlogPage() {
     const navigate=useNavigate();
     const [data,setData]=useState([])
     useEffect(()=>{
-        axios.get(url+`/blog/get?email=${username}`,{headers}).then((res)=>{
+        axios.get(uri+`/blog/get?email=${username}`,{headers}).then((res)=>{
             setData(res.data)
         }).catch(err=>{console.error(err)})
     },[temp])

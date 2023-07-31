@@ -36,7 +36,7 @@ const LoginPage = () => {
         } else {
             // login logic to be implemented
             console.log(username,password)
-            axios.post('http://localhost:8000/', {
+            axios.post('https://blog-backend-sunit.onrender.com/', {
                 email: username,
                 password: password
             }).then((res)=>{

@@ -60,7 +60,7 @@ export default function RegistrationPage() {
         } else {
             // registration logic to be implemented
             // console.log(name,email,password)
-            axios.post('http://localhost:8000/reg', {
+            axios.post('https://blog-backend-sunit.onrender.com/reg', {
                 name: name,
                 email: email,
                 password: password

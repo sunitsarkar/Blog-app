@@ -75,7 +75,7 @@ const LoginPage = () => {
                 <h2>Login</h2>
                 <form onSubmit={handleSubmit} className="login-form">
                     <div className="form-group">
-                        <label >Username:</label>
+                        <label >Email:</label>
                         <input
                             type="text"
                             id="username"

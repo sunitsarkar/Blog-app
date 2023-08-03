@@ -40,8 +40,10 @@ textarea{
     justify-content: center;
 }
 .post{
-    min-height: 100px ;
-    min-width: 100px;
+    min-height: 200px ;
+    width: 65%;
+    border-radius: 5px;
     background-color: rgb(231, 221, 221);
     border: 2px solid black;
+    gap: 10px;
 }
